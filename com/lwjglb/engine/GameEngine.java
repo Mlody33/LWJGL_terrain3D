@@ -53,14 +53,10 @@ public class GameEngine implements Runnable {
             elapsedTime = timer.getElapsedTime();
             accumulator += elapsedTime;
 
-            input();
 
             while (accumulator >= interval) {
-                update(interval);
                 accumulator -= interval;
             }
-
-            render();
 
             if ( !window.isvSync() ) {
                 sync();

@@ -5,11 +5,13 @@ import org.joml.Vector3f;
 public class DirectionalLight {
     
     private Vector3f color;
-
     private Vector3f direction;
-
     private float intensity;
 
+    public DirectionalLight(){
+    	
+    }
+    
     public DirectionalLight(Vector3f color, Vector3f direction, float intensity) {
         this.color = color;
         this.direction = direction;
