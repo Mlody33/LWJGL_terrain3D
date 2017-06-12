@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lwjgl"/>
+	<classpathentry kind="lib" path="C:/Users/Mateusz/.m2/repository/org/joml/joml/1.9.2/joml-1.9.2.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.joml"/>
+			<attribute name="maven.artifactId" value="joml"/>
+			<attribute name="maven.version" value="1.9.2"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Mateusz/.m2/repository/org/l33tlabs/twl/pngdecoder/1.0/pngdecoder-1.0.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.l33tlabs.twl"/>
+			<attribute name="maven.artifactId" value="pngdecoder"/>
+			<attribute name="maven.version" value="1.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

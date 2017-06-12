@@ -23,13 +23,17 @@ public class Material {
         this(DEFAULT_COLOUR, DEFAULT_COLOUR, DEFAULT_COLOUR, texture);
     }
 
-    public Material(Vector4f ambientColour, Vector4f diffuseColour Texture texture ) {
+    public Material(Vector4f ambientColour, Vector4f diffuseColour, Texture texture ) {
         this.ambientColour = ambientColour;
         this.diffuseColour = diffuseColour;
         this.texture = texture;
     }
 
-    public Vector4f getAmbientColour() {
+    public Material(Vector4f colour, Vector4f colour2, Vector4f colour3, Object object) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Vector4f getAmbientColour() {
         return ambientColour;
     }
 
