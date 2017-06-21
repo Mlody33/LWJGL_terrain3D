@@ -3,13 +3,13 @@ package com.lwjglb.game;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import com.lwjglb.engine.IGameLogic;
+import com.lwjglb.engine.InterfaceGameLogic;
 import com.lwjglb.engine.MouseInput;
 import com.lwjglb.engine.Window;
 import com.lwjglb.engine.graph.Camera;
 import com.lwjglb.engine.graph.lights.DirectionalLight;
 
-public class Game implements IGameLogic {
+public class Game implements InterfaceGameLogic {
 
     private final Camera camera;
 
