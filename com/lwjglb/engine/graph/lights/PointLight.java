@@ -14,7 +14,11 @@ public class PointLight {
         this.intensity = intensity;
     }
 
-    public Vector3f getColor() {
+    public PointLight(PointLight pointLight) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Vector3f getColor() {
         return color;
     }
     public void setColor(Vector3f color) {

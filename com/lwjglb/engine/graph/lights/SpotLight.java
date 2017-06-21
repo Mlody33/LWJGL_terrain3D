@@ -14,7 +14,11 @@ public class SpotLight {
         this.coneDirection = coneDirection;
     }
 
-    public PointLight getPointLight() {
+    public SpotLight(SpotLight spotLight) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public PointLight getPointLight() {
         return pointLight;
     }
     public void setPointLight(PointLight pointLight) {
