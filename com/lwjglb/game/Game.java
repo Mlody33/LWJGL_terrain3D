@@ -5,15 +5,20 @@ import org.joml.Vector3f;
 
 import com.lwjglb.engine.InterfaceGameLogic;
 import com.lwjglb.engine.MouseInput;
+import com.lwjglb.engine.Scene;
 import com.lwjglb.engine.Window;
 import com.lwjglb.engine.graph.Camera;
+import com.lwjglb.engine.graph.Render;
 import com.lwjglb.engine.graph.lights.DirectionalLight;
 
 public class Game implements InterfaceGameLogic {
 
     private final Camera camera;
+    private final Render render;
+    private Scene scene;
 
     public Game() {
+    	render = new Render();
         camera = new Camera();
     }
 
