@@ -7,4 +7,9 @@ public class SkyBox extends GameItem {
     public SkyBox(String objModel, String textureFile) throws Exception {
         super();
     }
+
+	public void setScale(float skyBoxScale) {
+		// TODO Auto-generated method stub
+		
+	}
 }

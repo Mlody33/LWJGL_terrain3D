@@ -74,5 +74,19 @@ public class GameEngine implements Runnable {
             }
         }
     }
+    
+    protected void input() {
+        mouseInput.input(window);
+        gameLogic.input(window, mouseInput);
+    }
+
+    protected void update(float interval) {
+        gameLogic.update(interval, mouseInput);
+    }
+
+    protected void render() {
+        gameLogic.render(window);
+        window.update();
+    }
 
 }
