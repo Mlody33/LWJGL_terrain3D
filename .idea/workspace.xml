@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea688a73-9ef8-42dd-a3f9-90e885c854f0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/textures/heightmap.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/textures/skybox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/textures/terrain.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/models/skybox.obj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/shaders/sb_fragment.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/shaders/sb_vertex.vs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/shaders/scene_fragment.fs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/shaders/scene_vertex.vs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/Scene.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Scene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/HeightMapMesh.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/HeightMapMesh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Material.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/Material.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Mesh.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/Mesh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/items/GameItem.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/items/GameItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/items/Terrain.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/items/Terrain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/game/Game.java" afterPath="$PROJECT_DIR$/com/lwjglb/game/Game.java" />
-    </list>
+    <list default="true" id="ea688a73-9ef8-42dd-a3f9-90e885c854f0" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
