@@ -8,21 +8,16 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HeightMapMesh {
+public class TerrainMesh {
 
     private static final int MAX_COLOUR = 255 * 255 * 255;
-
     private static final float STARTX = -0.5f;
-
     private static final float STARTZ = -0.5f;
-
     private final float minY;
-
     private final float maxY;
-
     private final Mesh mesh;
 
-    public HeightMapMesh(float minY, float maxY, String heightMapFile, String textureFile, int textInc) throws Exception {
+    public TerrainMesh(float minY, float maxY, String heightMapFile, String textureFile, int textInc) throws Exception {
         this.minY = minY;
         this.maxY = maxY;
 
@@ -34,7 +29,7 @@ public class HeightMapMesh {
         decoder.decode(buf, decoder.getWidth() * 4, PNGDecoder.Format.RGBA);
         buf.flip();
 
-        Texture texture = new Texture(textureFile);
+        TextureDecoder texture = new TextureDecoder(textureFile);
 
         float incx = getXLength() / (width - 1);
         float incz = getZLength() / (height - 1);
@@ -48,6 +43,7 @@ public class HeightMapMesh {
                 positions.add(STARTX + col * incx); // x
                 positions.add(getHeight(col, row, width, buf)); //y
                 positions.add(STARTZ + row * incz); //z
+
                 textCoords.add((float) textInc * (float) col / (float) width);
                 textCoords.add((float) textInc * (float) row / (float) height);
 
@@ -134,12 +130,16 @@ public class HeightMapMesh {
 
                     v1.cross(v2, v12);
                     v12.normalize();
+
                     v2.cross(v3, v23);
                     v23.normalize();
+
                     v3.cross(v4, v34);
                     v34.normalize();
+
                     v4.cross(v1, v41);
                     v41.normalize();
+
                     normal = v12.add(v23).add(v34).add(v41);
                     normal.normalize();
                 } else {

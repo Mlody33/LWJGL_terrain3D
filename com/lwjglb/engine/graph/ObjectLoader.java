@@ -1,19 +1,21 @@
 package com.lwjglb.engine.graph;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.lwjglb.engine.Utils;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import com.lwjglb.engine.Utils;
+import java.util.ArrayList;
+import java.util.List;
 
-public class OBJLoader {
+public class ObjectLoader {
 
     public static Mesh loadMesh(String fileName) throws Exception {
         List<String> lines = Utils.readAllLines(fileName);
+
         List<Vector3f> vertices = new ArrayList<>();
         List<Vector2f> textures = new ArrayList<>();
         List<Vector3f> normals = new ArrayList<>();
+        List<Face> faces = new ArrayList<>();
 
         for (String line : lines) {
             String[] tokens = line.split("\\s+");
@@ -38,15 +40,19 @@ public class OBJLoader {
                             Float.parseFloat(tokens[3]));
                     normals.add(vec3fNorm);
                     break;
+                case "f":
+                    Face face = new Face(tokens[1], tokens[2], tokens[3]);
+                    faces.add(face);
+                    break;
                 default:
                     break;
             }
         }
-        return reorderLists(vertices, textures, normals);
+        return reorderLists(vertices, textures, normals, faces);
     }
 
     private static Mesh reorderLists(List<Vector3f> posList, List<Vector2f> textCoordList,
-            List<Vector3f> normList){
+                                     List<Vector3f> normList, List<Face> facesList) {
 
         List<Integer> indices = new ArrayList();
         float[] posArr = new float[posList.size() * 3];
@@ -60,11 +66,39 @@ public class OBJLoader {
         float[] textCoordArr = new float[posList.size() * 2];
         float[] normArr = new float[posList.size() * 3];
 
+        for (Face face : facesList) {
+            IdxGroup[] faceVertexIndices = face.getFaceVertexIndices();
+            for (IdxGroup indValue : faceVertexIndices) {
+                processFaceVertex(indValue, textCoordList, normList,
+                        indices, textCoordArr, normArr);
+            }
+        }
         int[] indicesArr = new int[indices.size()];
         indicesArr = indices.stream().mapToInt((Integer v) -> v).toArray();
         Mesh mesh = new Mesh(posArr, textCoordArr, normArr, indicesArr);
         return mesh;
     }
+
+    private static void processFaceVertex(IdxGroup indices, List<Vector2f> textCoordList,
+                                          List<Vector3f> normList, List<Integer> indicesList,
+                                          float[] texCoordArr, float[] normArr) {
+
+        int posIndex = indices.idxPos;
+        indicesList.add(posIndex);
+
+        if (indices.idxTextCoord >= 0) {
+            Vector2f textCoord = textCoordList.get(indices.idxTextCoord);
+            texCoordArr[posIndex * 2] = textCoord.x;
+            texCoordArr[posIndex * 2 + 1] = 1 - textCoord.y;
+        }
+        if (indices.idxVecNormal >= 0) {
+            Vector3f vecNorm = normList.get(indices.idxVecNormal);
+            normArr[posIndex * 3] = vecNorm.x;
+            normArr[posIndex * 3 + 1] = vecNorm.y;
+            normArr[posIndex * 3 + 2] = vecNorm.z;
+        }
+    }
+
     protected static class Face {
 
         private IdxGroup[] idxGroups = new IdxGroup[3];
@@ -83,6 +117,7 @@ public class OBJLoader {
             int length = lineTokens.length;
             idxGroup.idxPos = Integer.parseInt(lineTokens[0]) - 1;
             if (length > 1) {
+                // It can be empty if the obj does not define text coords
                 String textCoord = lineTokens[1];
                 idxGroup.idxTextCoord = textCoord.length() > 0 ? Integer.parseInt(textCoord) - 1 : IdxGroup.NO_VALUE;
                 if (length > 2) {
@@ -101,8 +136,11 @@ public class OBJLoader {
     protected static class IdxGroup {
 
         public static final int NO_VALUE = -1;
+
         public int idxPos;
+
         public int idxTextCoord;
+
         public int idxVecNormal;
 
         public IdxGroup() {

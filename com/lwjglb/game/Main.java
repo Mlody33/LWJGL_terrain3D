@@ -1,15 +1,14 @@
 package com.lwjglb.game;
 
-import com.lwjglb.engine.GameEngine;
-import com.lwjglb.engine.InterfaceGameLogic;
- 
+import com.lwjglb.engine.Engine;
+
 public class Main {
  
     public static void main(String[] args) {
         try {
-            Game gameLogic = new Game();
-            GameEngine gameEng = new GameEngine("GAME_test", true, gameLogic);
-            gameEng.start();
+            Game game = new Game();
+            Engine engine = new Engine("Terrain3D", true, game);
+            engine.start();
         } catch (Exception excp) {
             excp.printStackTrace();
             System.exit(-1);

@@ -5,12 +5,11 @@ import org.joml.Vector4f;
 public class Material {
 
     private static final Vector4f DEFAULT_COLOUR = new Vector4f(1.0f, 1.0f, 1.0f, 1.0f);
-
     private Vector4f ambientColour;
     private Vector4f diffuseColour;
     private Vector4f specularColour;
     private float reflectance;
-    private Texture texture;
+    private TextureDecoder texture;
 
     public Material() {
         this.ambientColour = DEFAULT_COLOUR;
@@ -24,20 +23,28 @@ public class Material {
         this(colour, colour, colour, null, reflectance);
     }
 
-    public Material(Texture texture) {
+    public Material(TextureDecoder texture) {
         this(DEFAULT_COLOUR, DEFAULT_COLOUR, DEFAULT_COLOUR, texture, 0);
     }
 
-    public Material(Texture texture, float reflectance) {
+    public Material(TextureDecoder texture, float reflectance) {
         this(DEFAULT_COLOUR, DEFAULT_COLOUR, DEFAULT_COLOUR, texture, reflectance);
     }
 
-    public Material(Vector4f ambientColour, Vector4f diffuseColour, Vector4f specularColour, Texture texture, float reflectance) {
+    public Material(Vector4f ambientColour, Vector4f diffuseColour, Vector4f specularColour, TextureDecoder texture, float reflectance) {
         this.ambientColour = ambientColour;
         this.diffuseColour = diffuseColour;
         this.specularColour = specularColour;
         this.texture = texture;
         this.reflectance = reflectance;
+    }
+
+    public Vector4f getAmbientColour() {
+        return ambientColour;
+    }
+
+    public void setAmbientColour(Vector4f ambientColour) {
+        this.ambientColour = ambientColour;
     }
 
     public Vector4f getDiffuseColour() {
@@ -68,11 +75,11 @@ public class Material {
         return this.texture != null;
     }
 
-    public Texture getTexture() {
+    public TextureDecoder getTexture() {
         return texture;
     }
 
-    public void setTexture(Texture texture) {
+    public void setTexture(TextureDecoder texture) {
         this.texture = texture;
     }
 

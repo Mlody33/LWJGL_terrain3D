@@ -2,9 +2,10 @@ package com.lwjglb.engine;
 
 import org.joml.Vector2d;
 import org.joml.Vector2f;
+
 import static org.lwjgl.glfw.GLFW.*;
 
-public class MouseInput {
+public class Input {
 
     private final Vector2d previousPos;
     private final Vector2d currentPos;
@@ -13,7 +14,7 @@ public class MouseInput {
     private boolean leftButtonPressed = false;
     private boolean rightButtonPressed = false;
 
-    public MouseInput() {
+    public Input() {
         previousPos = new Vector2d(-1, -1);
         currentPos = new Vector2d(0, 0);
         displVec = new Vector2f();
@@ -32,7 +33,30 @@ public class MouseInput {
             rightButtonPressed = button == GLFW_MOUSE_BUTTON_2 && action == GLFW_PRESS;
         });
     }
-    
+
+    public Vector2f getDisplVec() {
+        return displVec;
+    }
+
+    public void input(Window window) {
+        displVec.x = 0;
+        displVec.y = 0;
+        if (previousPos.x > 0 && previousPos.y > 0 && inWindow) {
+            double deltax = currentPos.x - previousPos.x;
+            double deltay = currentPos.y - previousPos.y;
+            boolean rotateX = deltax != 0;
+            boolean rotateY = deltay != 0;
+            if (rotateX) {
+                displVec.y = (float) deltax;
+            }
+            if (rotateY) {
+                displVec.x = (float) deltay;
+            }
+        }
+        previousPos.x = currentPos.x;
+        previousPos.y = currentPos.y;
+    }
+
     public boolean isLeftButtonPressed() {
         return leftButtonPressed;
     }
@@ -40,14 +64,4 @@ public class MouseInput {
     public boolean isRightButtonPressed() {
         return rightButtonPressed;
     }
-
-	public Vector2f getDisplVec() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void input(Window window) {
-		// TODO Auto-generated method stub
-		
-	}
 }

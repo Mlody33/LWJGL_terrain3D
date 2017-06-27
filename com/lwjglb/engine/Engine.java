@@ -1,29 +1,40 @@
 package com.lwjglb.engine;
 
-public class GameEngine implements Runnable {
+public class Engine implements Runnable {
 
-    public static final int TARGET_FPS = 75;
+    public static final int TARGET_FPS = 60;
+
     public static final int TARGET_UPS = 30;
-    private final Window window;
-    private final Thread gameLoopThread;
-    private final Timer timer;
-    private final InterfaceGameLogic gameLogic;
-    private final MouseInput mouseInput;
 
-    public GameEngine(String windowTitle, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
+    private final Window window;
+
+    private final Thread gameLoopThread;
+
+    private final Timer timer;
+
+    private final InterfaceGameLogic gameLogic;
+
+    private final Input mouseInput;
+
+    public Engine(String windowTitle, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
         this(windowTitle, 0, 0, vSync, gameLogic);
     }
-    
-    public GameEngine(String windowTitle, int width, int height, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
+
+    public Engine(String windowTitle, int width, int height, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
         gameLoopThread = new Thread(this, "GAME_LOOP_THREAD");
         window = new Window(windowTitle, width, height, vSync);
-        mouseInput = new MouseInput();
+        mouseInput = new Input();
         this.gameLogic = gameLogic;
         timer = new Timer();
     }
 
     public void start() {
+        String osName = System.getProperty("os.name");
+        if ( osName.contains("Mac") ) {
+            gameLoopThread.run();
+        } else {
             gameLoopThread.start();
+        }
     }
 
     @Override
@@ -33,6 +44,8 @@ public class GameEngine implements Runnable {
             gameLoop();
         } catch (Exception excp) {
             excp.printStackTrace();
+        } finally {
+            cleanup();
         }
     }
 
@@ -53,17 +66,25 @@ public class GameEngine implements Runnable {
             elapsedTime = timer.getElapsedTime();
             accumulator += elapsedTime;
 
+            input();
 
             while (accumulator >= interval) {
+                update(interval);
                 accumulator -= interval;
             }
+
+            render();
 
             if ( !window.isvSync() ) {
                 sync();
             }
         }
     }
-    
+
+    protected void cleanup() {
+        gameLogic.cleanup();
+    }
+
     private void sync() {
         float loopSlot = 1f / TARGET_FPS;
         double endTime = timer.getLastLoopTime() + loopSlot;
@@ -74,7 +95,7 @@ public class GameEngine implements Runnable {
             }
         }
     }
-    
+
     protected void input() {
         mouseInput.input(window);
         gameLogic.input(window, mouseInput);
@@ -88,5 +109,4 @@ public class GameEngine implements Runnable {
         gameLogic.render(window);
         window.update();
     }
-
 }

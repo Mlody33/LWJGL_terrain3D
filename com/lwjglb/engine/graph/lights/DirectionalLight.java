@@ -3,15 +3,11 @@ package com.lwjglb.engine.graph.lights;
 import org.joml.Vector3f;
 
 public class DirectionalLight {
-    
+
     private Vector3f color;
     private Vector3f direction;
     private float intensity;
 
-    public DirectionalLight(){
-    	
-    }
-    
     public DirectionalLight(Vector3f color, Vector3f direction, float intensity) {
         this.color = color;
         this.direction = direction;
@@ -25,7 +21,6 @@ public class DirectionalLight {
     public Vector3f getColor() {
         return color;
     }
-
     public void setColor(Vector3f color) {
         this.color = color;
     }
@@ -33,7 +28,6 @@ public class DirectionalLight {
     public Vector3f getDirection() {
         return direction;
     }
-
     public void setDirection(Vector3f direction) {
         this.direction = direction;
     }
@@ -41,7 +35,6 @@ public class DirectionalLight {
     public float getIntensity() {
         return intensity;
     }
-
     public void setIntensity(float intensity) {
         this.intensity = intensity;
     }
