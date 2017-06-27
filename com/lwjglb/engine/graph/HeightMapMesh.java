@@ -4,9 +4,6 @@ import de.matthiasmann.twl.utils.PNGDecoder;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.joml.Vector3f;
-
-import com.lwjglb.engine.Utils;
 
 public class HeightMapMesh {
 
