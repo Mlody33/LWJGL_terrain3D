@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://C:/Users/Mateusz/.m2/repository/org/joml/joml/1.9.2/joml-1.9.2.jar" />
+    <libelement value="file://C:/Users/Mateusz/.m2/repository/org/l33tlabs/twl/pngdecoder/1.0/pngdecoder-1.0.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="JavaSE-1.8" jdkType="JavaSDK" />
+    <orderEntry type="library" name="lwjgl" level="project" />
+    <orderEntry type="module-library">
+      <library name="joml-1.9.2.jar">
+        <CLASSES>
+          <root url="file://C:/Users/Mateusz/.m2/repository/org/joml/joml/1.9.2/joml-1.9.2.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="pngdecoder-1.0.jar">
+        <CLASSES>
+          <root url="file://C:/Users/Mateusz/.m2/repository/org/l33tlabs/twl/pngdecoder/1.0/pngdecoder-1.0.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
