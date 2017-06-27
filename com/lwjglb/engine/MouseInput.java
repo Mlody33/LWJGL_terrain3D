@@ -40,4 +40,14 @@ public class MouseInput {
     public boolean isRightButtonPressed() {
         return rightButtonPressed;
     }
+
+	public Vector2f getDisplVec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void input(Window window) {
+		// TODO Auto-generated method stub
+		
+	}
 }

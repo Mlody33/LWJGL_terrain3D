@@ -7,7 +7,7 @@ import com.lwjglb.engine.graph.lights.PointLight;
 import com.lwjglb.engine.graph.lights.SpotLight;
 
 public class SceneLight {
-    
+
     private Vector3f skyBoxLight;
     private DirectionalLight directionalLight;
 
@@ -26,15 +26,5 @@ public class SceneLight {
     public void setSkyBoxLight(Vector3f skyBoxLight) {
         this.skyBoxLight = skyBoxLight;
     }
-
-	public PointLight[] getPointLightList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public SpotLight[] getSpotLightList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
     
 }

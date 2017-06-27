@@ -36,4 +36,14 @@ public class Camera {
         rotation.y = y;
         rotation.z = z;
     }
+
+	public void moveRotation(float f, float g, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void movePosition(float f, float g, float h) {
+		// TODO Auto-generated method stub
+		
+	}
 }
