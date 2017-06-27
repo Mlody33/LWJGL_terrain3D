@@ -12,9 +12,7 @@ import java.util.Map;
 public class Scene {
 
     private Map<Mesh, List<GameItem>> meshMap;
-
     private SkyBox skyBox;
-
     private SceneLight sceneLight;
 
     public Scene() {
@@ -25,7 +23,7 @@ public class Scene {
         return meshMap;
     }
 
-    public void setGameItems(GameItem[] gameItems) {
+    public void setItems(GameItem[] gameItems) {
         int numGameItems = gameItems != null ? gameItems.length : 0;
         for (int i=0; i<numGameItems; i++) {
             GameItem gameItem = gameItems[i];
@@ -39,7 +37,7 @@ public class Scene {
         }
     }
 
-    public void cleanup() {
+    public void delete() {
         for (Mesh mesh : meshMap.keySet()) {
             mesh.cleanUp();
         }

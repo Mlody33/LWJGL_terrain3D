@@ -3,60 +3,46 @@ package com.lwjglb.engine;
 public class Engine implements Runnable {
 
     public static final int TARGET_FPS = 60;
-
     public static final int TARGET_UPS = 30;
-
     private final Window window;
-
-    private final Thread gameLoopThread;
-
+    private final Thread mainLoopThread;
     private final Timer timer;
+    private final InterfaceGame game;
+    private final Input mouse;
 
-    private final InterfaceGameLogic gameLogic;
-
-    private final Input mouseInput;
-
-    public Engine(String windowTitle, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
-        this(windowTitle, 0, 0, vSync, gameLogic);
+    public Engine(String windowTitle, boolean vSync, InterfaceGame game, boolean resized) throws Exception {
+        this(windowTitle, 0, 0, vSync, game, resized);
     }
 
-    public Engine(String windowTitle, int width, int height, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
-        gameLoopThread = new Thread(this, "GAME_LOOP_THREAD");
-        window = new Window(windowTitle, width, height, vSync);
-        mouseInput = new Input();
-        this.gameLogic = gameLogic;
+    public Engine(String windowTitle, int width, int height, boolean vSync, InterfaceGame game, boolean resized) throws Exception {
+        mainLoopThread = new Thread(this, "MAIN LOOP THREAD");
+        window = new Window(windowTitle, width, height, vSync, resized);
+        mouse = new Input();
+        this.game = game;
         timer = new Timer();
     }
 
-    public void start() {
-        String osName = System.getProperty("os.name");
-        if ( osName.contains("Mac") ) {
-            gameLoopThread.run();
-        } else {
-            gameLoopThread.start();
-        }
+    public void open() {
+        mainLoopThread.start();
     }
 
     @Override
     public void run() {
         try {
-            init();
-            gameLoop();
+            window.initialize();
+            timer.initialize();
+            mouse.initialize(window);
+            game.initialize(window);
+
+            mainLoop();
         } catch (Exception excp) {
             excp.printStackTrace();
         } finally {
-            cleanup();
+            delete();
         }
     }
 
-    protected void init() throws Exception {
-        window.init();
-        timer.init();
-        mouseInput.init(window);
-        gameLogic.init(window);
-    }
-
-    protected void gameLoop() {
+    protected void mainLoop() {
         float elapsedTime;
         float accumulator = 0f;
         float interval = 1f / TARGET_UPS;
@@ -81,8 +67,8 @@ public class Engine implements Runnable {
         }
     }
 
-    protected void cleanup() {
-        gameLogic.cleanup();
+    protected void delete() {
+        game.delete();
     }
 
     private void sync() {
@@ -97,16 +83,16 @@ public class Engine implements Runnable {
     }
 
     protected void input() {
-        mouseInput.input(window);
-        gameLogic.input(window, mouseInput);
+        mouse.input(window);
+        game.input(window, mouse);
     }
 
     protected void update(float interval) {
-        gameLogic.update(interval, mouseInput);
+        game.update(interval, mouse);
     }
 
     protected void render() {
-        gameLogic.render(window);
+        game.render(window);
         window.update();
     }
 }

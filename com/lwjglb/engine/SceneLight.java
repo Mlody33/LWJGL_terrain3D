@@ -8,13 +8,9 @@ import org.joml.Vector3f;
 public class SceneLight {
 
     private Vector3f ambientLight;
-
     private Vector3f skyBoxLight;
-
     private PointLight[] pointLightList;
-
     private SpotLight[] spotLightList;
-
     private DirectionalLight directionalLight;
 
     public Vector3f getAmbientLight() {

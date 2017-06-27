@@ -191,7 +191,7 @@ public class RenderScene {
         sceneShaderProgram.setUniform("directionalLight", currDirLight);
     }
 
-    public void cleanup() {
+    public void delete() {
         if (skyBoxShaderProgram != null) {
             skyBoxShaderProgram.cleanup();
         }

@@ -16,19 +16,15 @@ public class Window {
     private boolean resized;
     private boolean vSync;
 
-    public Window(String title, boolean vSync) {
-        this(title, 0, 0, vSync);
-    }
-
-    public Window(String title, int width, int height, boolean vSync) {
+    public Window(String title, int width, int height, boolean vSync, boolean resized) {
         this.title = title;
         this.width = width;
         this.height = height;
         this.vSync = vSync;
-        this.resized = false;
+        this.resized = resized;
     }
 
-    public void init() {
+    public void initialize() {
         GLFWErrorCallback.createPrint(System.err).set();
 
         if (!glfwInit()) {
@@ -64,7 +60,7 @@ public class Window {
 
         glfwSetKeyCallback(windowHandle, (window, key, scancode, action, mods) -> {
             if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
-                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+                glfwSetWindowShouldClose(window, true);
             }
         });
 

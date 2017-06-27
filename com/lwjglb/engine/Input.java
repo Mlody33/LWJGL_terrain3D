@@ -7,23 +7,23 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Input {
 
-    private final Vector2d previousPos;
-    private final Vector2d currentPos;
+    private final Vector2d previousPosition;
+    private final Vector2d currentPosition;
     private final Vector2f displVec;
     private boolean inWindow = false;
     private boolean leftButtonPressed = false;
     private boolean rightButtonPressed = false;
 
     public Input() {
-        previousPos = new Vector2d(-1, -1);
-        currentPos = new Vector2d(0, 0);
+        previousPosition = new Vector2d(-1, -1);
+        currentPosition = new Vector2d(0, 0);
         displVec = new Vector2f();
     }
 
-    public void init(Window window) {
+    public void initialize(Window window) {
         glfwSetCursorPosCallback(window.getWindowHandle(), (windowHandle, xpos, ypos) -> {
-            currentPos.x = xpos;
-            currentPos.y = ypos;
+            currentPosition.x = xpos;
+            currentPosition.y = ypos;
         });
         glfwSetCursorEnterCallback(window.getWindowHandle(), (windowHandle, entered) -> {
             inWindow = entered;
@@ -41,9 +41,9 @@ public class Input {
     public void input(Window window) {
         displVec.x = 0;
         displVec.y = 0;
-        if (previousPos.x > 0 && previousPos.y > 0 && inWindow) {
-            double deltax = currentPos.x - previousPos.x;
-            double deltay = currentPos.y - previousPos.y;
+        if (previousPosition.x > 0 && previousPosition.y > 0 && inWindow) {
+            double deltax = currentPosition.x - previousPosition.x;
+            double deltay = currentPosition.y - previousPosition.y;
             boolean rotateX = deltax != 0;
             boolean rotateY = deltay != 0;
             if (rotateX) {
@@ -53,8 +53,8 @@ public class Input {
                 displVec.x = (float) deltay;
             }
         }
-        previousPos.x = currentPos.x;
-        previousPos.y = currentPos.y;
+        previousPosition.x = currentPosition.x;
+        previousPosition.y = currentPosition.y;
     }
 
     public boolean isLeftButtonPressed() {

@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea688a73-9ef8-42dd-a3f9-90e885c854f0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/RenderScene.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/ShaderProgram.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Render.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/GameEngine.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Engine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/MouseInput.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Input.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/HeightMapMesh.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/TerrainMesh.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/OBJLoader.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/ObjectLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Texture.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/TextureDecoder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Transform.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/MatrixTransform.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/lwjglb/engine/InterfaceGameLogic.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/InterfaceGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/InterfaceGameLogic.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/InterfaceGameLogic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/Engine.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Engine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/Input.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Input.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/Scene.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Scene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Camera.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/Camera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Material.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/Material.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/Mesh.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/Mesh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/DirectionalLight.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/DirectionalLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/PointLight.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/PointLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/SpotLight.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/SpotLight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/Timer.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Timer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/Window.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/Window.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/graph/RenderScene.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/graph/RenderScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/engine/items/Terrain.java" afterPath="$PROJECT_DIR$/com/lwjglb/engine/items/Terrain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/game/Game.java" afterPath="$PROJECT_DIR$/com/lwjglb/game/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/lwjglb/game/Main.java" afterPath="$PROJECT_DIR$/com/lwjglb/game/Main.java" />
@@ -37,7 +27,19 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>start</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,10 +54,8 @@
       <list>
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/Utils.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/items/Utils.java" />
-        <option value="$PROJECT_DIR$/com/lwjglb/engine/Scene.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/items/Terrain.java" />
-        <option value="$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/Camera.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/Texture.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/ShaderProgram.java" />
@@ -65,8 +65,6 @@
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/OBJLoader.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/InterfaceGameLogic.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/HeightMapMesh.java" />
-        <option value="$PROJECT_DIR$/com/lwjglb/game/Main.java" />
-        <option value="$PROJECT_DIR$/com/lwjglb/game/Game.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/Render.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/RenderScene.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/Material.java" />
@@ -75,16 +73,22 @@
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/MatrixTransform.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/items/GameItem.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/GameEngine.java" />
-        <option value="$PROJECT_DIR$/com/lwjglb/engine/Engine.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/MouseInput.java" />
-        <option value="$PROJECT_DIR$/com/lwjglb/engine/Input.java" />
         <option value="$PROJECT_DIR$/com/lwjglb/engine/graph/lights/DirectionalLight.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/engine/Window.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/engine/Scene.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/game/Game.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/game/Main.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/engine/Engine.java" />
+        <option value="$PROJECT_DIR$/com/lwjglb/engine/Input.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="39" />
     <option name="y" value="24" />
-    <option name="width" value="1366" />
+    <option name="width" value="1327" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
@@ -102,7 +106,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -233,14 +237,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="settings.editor.splitter.proportion" value="0.27307326" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LWJGL_terrain3D_test" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -250,7 +254,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lwjglb.game" />
       <recent name="com.lwjglb.engine.graph" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.lwjglb.game" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -501,7 +509,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <frame x="39" y="24" width="1327" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -519,8 +527,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25757575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23028883" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -532,6 +539,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -568,7 +576,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -576,6 +586,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LWJGL_terrain3D.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -584,14 +610,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/items/Utils.java" />
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="59" column="1" lean-forward="false" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/graph/lights/PointLight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -624,58 +642,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/InterfaceGameLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/graph/TerrainMesh.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-479">
           <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -712,14 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-961">
-          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/graph/TextureDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -735,14 +697,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,39 +716,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Engine.java">
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/graph/lights/DirectionalLight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="94" lean-forward="false" selection-start-line="22" selection-start-column="94" selection-end-line="22" selection-end-column="94" />
+        <state relative-caret-position="666">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#605#606#0" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#682#683#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#752#753#0" expanded="false" />
+            <element signature="e#803#804#0" expanded="false" />
+            <element signature="e#845#846#0" expanded="false" />
+            <element signature="e#880#881#0" expanded="false" />
+            <element signature="e#912#913#0" expanded="false" />
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#1002#1003#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Game" />
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#117#118#0" expanded="true" />
+            <element signature="e#157#158#0" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="44" column="28" lean-forward="false" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/SceneLight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Input.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/graph/lights/DirectionalLight.java">
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/items/SkyBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/InterfaceGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/lwjglb/engine/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#1002#1003#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

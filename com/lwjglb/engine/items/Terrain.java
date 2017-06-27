@@ -22,7 +22,7 @@ public class Terrain {
         }
     }
 
-    public GameItem[] getGameItems() {
+    public GameItem[] setItems() {
         return gameItems;
     }
 }
