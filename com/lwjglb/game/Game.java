@@ -1,12 +1,5 @@
 package com.lwjglb.game;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_A;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_D;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_S;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_W;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_X;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_Z;
-
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
@@ -21,12 +14,16 @@ import com.lwjglb.engine.graph.lights.DirectionalLight;
 import com.lwjglb.engine.items.SkyBox;
 import com.lwjglb.engine.items.Terrain;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 public class Game implements InterfaceGameLogic {
 
+    private static final float CAMERA_POS_STEP = 0.05f;
     private final Camera camera;
     private final Vector3f cameraInc;
     private final Render render;
     private Scene scene;
+    private float lightAngle;
 
     public Game() {
     	render = new Render();
@@ -94,13 +91,22 @@ public class Game implements InterfaceGameLogic {
             camera.moveRotation(rotVec.x * 0.2f, rotVec.y * 0.2f, 0);
         }
 
-        camera.movePosition(cameraInc.x * 0.05f, cameraInc.y * 0.05f, cameraInc.z * 0.05f);
+        camera.movePosition(cameraInc.x * CAMERA_POS_STEP, cameraInc.y * CAMERA_POS_STEP, cameraInc.z * CAMERA_POS_STEP);
 
         SceneLight sceneLight = scene.getSceneLight();
         DirectionalLight directionalLight = sceneLight.getDirectionalLight();
+        lightAngle += 0.8f;
+        if(lightAngle >= 90f){
+            lightAngle = -90f;
+        }
         directionalLight.setIntensity(0.9f);
-        
         sceneLight.getSkyBoxLight().set(0.9f, 0.9f, 0.9f);
+
+        double angRad = Math.toRadians(lightAngle);
+        directionalLight.getDirection().x = (float) Math.sin(angRad);
+        directionalLight.getDirection().y = (float) Math.cos(angRad);
+
+        System.out.println("light angle: "+lightAngle+" | angRad: "+angRad);
         
     }
 

@@ -62,4 +62,6 @@ public class Mesh {
         return vaoId;
     }
 
+    public void cleanUp() {
+    }
 }
