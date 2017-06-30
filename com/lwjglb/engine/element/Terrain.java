@@ -1,24 +1,24 @@
-package com.lwjglb.engine.items;
+package com.lwjglb.engine.element;
 
 public class Terrain {
 
-    private final GameItem[] gameItems;
+    private final TerrainBlock[] terrainBlocks;
 
     public Terrain(int blocksPerRow, float scale, float minY, float maxY, String heightMap, String textureFile, int textInc) throws Exception {
-        gameItems = new GameItem[blocksPerRow * blocksPerRow];
+        terrainBlocks = new TerrainBlock[blocksPerRow * blocksPerRow];
         for (int row = 0; row < blocksPerRow; row++) {
             for (int col = 0; col < blocksPerRow; col++) {
                 float xDisplacement = row * blocksPerRow * scale;
                 float zDisplacement = row * blocksPerRow * scale;
 
-                GameItem terrainBlock = new GameItem();
+                TerrainBlock terrainBlock = new TerrainBlock();
                 terrainBlock.setPosition(xDisplacement, 0, zDisplacement);
-                gameItems[row * blocksPerRow + col] = terrainBlock;
+                terrainBlocks[row * blocksPerRow + col] = terrainBlock;
             }
         }
     }
 
-    public GameItem[] getGameItems() {
-        return gameItems;
+    public TerrainBlock[] getGameElement() {
+        return terrainBlocks;
     }
 }
