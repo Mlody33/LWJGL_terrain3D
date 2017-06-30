@@ -5,32 +5,32 @@ public class Engine implements Runnable {
     public static final int TARGET_FPS = 75;
     public static final int TARGET_UPS = 30;
     private final Window window;
-    private final Thread gameLoopThread;
+    private final Thread LoopThread;
     private final Timer timer;
-    private final GameInterface gameLogic;
+    private final GameInterface game;
     private final Input mouseInput;
 
     public Engine(String windowTitle, boolean vSync, GameInterface gameLogic) throws Exception {
         this(windowTitle, 0, 0, vSync, gameLogic);
     }
     
-    public Engine(String windowTitle, int width, int height, boolean vSync, GameInterface gameLogic) throws Exception {
-        gameLoopThread = new Thread(this, "GAME_LOOP_THREAD");
+    public Engine(String windowTitle, int width, int height, boolean vSync, GameInterface game) throws Exception {
+        LoopThread = new Thread(this, "GLT2");
         window = new Window(windowTitle, width, height, vSync);
         mouseInput = new Input();
-        this.gameLogic = gameLogic;
+        this.game = game;
         timer = new Timer();
     }
 
     public void start() {
-            gameLoopThread.start();
+            LoopThread.start();
     }
 
     @Override
     public void run() {
         try {
             init();
-            gameLoop();
+            loop();
         } catch (Exception excp) {
             excp.printStackTrace();
         }
@@ -40,10 +40,10 @@ public class Engine implements Runnable {
         window.init();
         timer.init();
         mouseInput.init(window);
-        gameLogic.init(window);
+        game.init(window);
     }
 
-    protected void gameLoop() {
+    protected void loop() {
         float elapsedTime;
         float accumulator = 0f;
         float interval = 1f / TARGET_UPS;
@@ -77,15 +77,15 @@ public class Engine implements Runnable {
     
     protected void input() {
         mouseInput.input(window);
-        gameLogic.input(window, mouseInput);
+        game.input(window, mouseInput);
     }
 
     protected void update(float interval) {
-        gameLogic.update(interval, mouseInput);
+        game.update(interval, mouseInput);
     }
 
     protected void render() {
-        gameLogic.render(window);
+        game.render(window);
         window.update();
     }
 
