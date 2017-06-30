@@ -7,9 +7,9 @@ public class Main {
  
     public static void main(String[] args) {
         try {
-            Game gameLogic = new Game();
-            Engine gameEng = new Engine("GAME_test", true, gameLogic);
-            gameEng.start();
+            Game game = new Game();
+            Engine engine = new Engine("Terrain3D", true, game);
+            engine.start();
         } catch (Exception excp) {
             excp.printStackTrace();
             System.exit(-1);
