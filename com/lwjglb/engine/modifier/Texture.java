@@ -1,4 +1,4 @@
-package com.lwjglb.engine.graph;
+package com.lwjglb.engine.modifier;
 
 import de.matthiasmann.twl.utils.PNGDecoder;
 import de.matthiasmann.twl.utils.PNGDecoder.Format;

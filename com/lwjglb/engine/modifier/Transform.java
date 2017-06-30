@@ -1,9 +1,9 @@
-package com.lwjglb.engine.graph;
+package com.lwjglb.engine.modifier;
 
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-import com.lwjglb.engine.items.GameItem;
+import com.lwjglb.engine.element.TerrainBlock;
 
 public class Transform {
 
@@ -45,7 +45,7 @@ public class Transform {
         return viewMatrix;
     }
     
-    public Matrix4f buildModelViewMatrix(GameItem gameItem, Matrix4f viewMatrix) {
+    public Matrix4f buildModelViewMatrix(TerrainBlock gameItem, Matrix4f viewMatrix) {
         Vector3f rotation = gameItem.getRotation();
         modelMatrix.identity().translate(gameItem.getPosition()).
                 rotateX((float)Math.toRadians(-rotation.x)).

@@ -1,41 +1,39 @@
 package com.lwjglb.engine;
 
-import com.lwjglb.engine.graph.Mesh;
-import com.lwjglb.engine.items.GameItem;
-import com.lwjglb.engine.items.SkyBox;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lwjglb.engine.element.SkyBox;
+import com.lwjglb.engine.element.TerrainBlock;
+import com.lwjglb.engine.modifier.Mesh;
+
 public class Scene {
 
-    private Map<Mesh, List<GameItem>> meshMap;
-
+    private Map<Mesh, List<TerrainBlock>> meshMap;
     private SkyBox skyBox;
-
-    private SceneLight sceneLight;
+    private SceneSun sceneSun;
 
     public Scene() {
         meshMap = new HashMap();
     }
-
-    public Map<Mesh, List<GameItem>> getGameMeshes() {
+    
+    public Map<Mesh, List<TerrainBlock>> getGameMeshes() {
         return meshMap;
     }
 
-    public void setGameItems(GameItem[] gameItems) {
-        int numGameItems = gameItems != null ? gameItems.length : 0;
-        for (int i=0; i<numGameItems; i++) {
-            GameItem gameItem = gameItems[i];
-            Mesh mesh = gameItem.getMesh();
-            List<GameItem> list = meshMap.get(mesh);
+    public void setGameElement(TerrainBlock[] gameElements) {
+        int numGameElement = gameElements != null ? gameElements.length : 0;
+        for (int i=0; i<numGameElement; i++) {
+            TerrainBlock gameElement = gameElements[i];
+            Mesh mesh = gameElement.getMesh();
+            List<TerrainBlock> list = meshMap.get(mesh);
             if ( list == null ) {
                 list = new ArrayList<>();
                 meshMap.put(mesh, list);
             }
-            list.add(gameItem);
+            list.add(gameElement);
         }
     }
 
@@ -53,12 +51,12 @@ public class Scene {
         this.skyBox = skyBox;
     }
 
-    public SceneLight getSceneLight() {
-        return sceneLight;
+    public SceneSun getSceneSun() {
+        return sceneSun;
     }
 
-    public void setSceneLight(SceneLight sceneLight) {
-        this.sceneLight = sceneLight;
+    public void setSceneSun(SceneSun sceneSun) {
+        this.sceneSun = sceneSun;
     }
     
 }

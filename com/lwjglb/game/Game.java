@@ -1,61 +1,66 @@
 package com.lwjglb.game;
 
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_A;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_D;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_S;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_W;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_X;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_Z;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_UP;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_DOWN;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_LEFT;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_RIGHT;
+
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import com.lwjglb.engine.InterfaceGameLogic;
-import com.lwjglb.engine.MouseInput;
+import com.lwjglb.engine.GameInterface;
+import com.lwjglb.engine.Input;
 import com.lwjglb.engine.Scene;
-import com.lwjglb.engine.SceneLight;
+import com.lwjglb.engine.SceneSun;
 import com.lwjglb.engine.Window;
-import com.lwjglb.engine.graph.Camera;
-import com.lwjglb.engine.graph.Render;
-import com.lwjglb.engine.graph.lights.DirectionalLight;
-import com.lwjglb.engine.items.SkyBox;
-import com.lwjglb.engine.items.Terrain;
+import com.lwjglb.engine.element.SkyBox;
+import com.lwjglb.engine.element.Terrain;
+import com.lwjglb.engine.modifier.Camera;
+import com.lwjglb.engine.modifier.Render;
+import com.lwjglb.engine.sun.DirectSun;
 
-import static org.lwjgl.glfw.GLFW.*;
+public class Game implements GameInterface {
 
-public class Game implements InterfaceGameLogic {
+    private final Vector3f cameraInc;
+    private final Camera camera;
+    private Scene scene;
+    private float lightPosition;
+	private Render render;
 
     private static final float CAMERA_POS_STEP = 0.05f;
-    private final Camera camera;
-    private final Vector3f cameraInc;
-    private final Render render;
-    private Scene scene;
-    private float lightAngle;
 
     public Game() {
-    	render = new Render();
+        render = new Render();
         camera = new Camera();
         cameraInc = new Vector3f(0.0f, 0.0f, 0.0f);
+        lightPosition = -40;
     }
 
     @Override
     public void init(Window window) throws Exception {
         render.init(window);
-
         scene = new Scene();
 
-        float skyBoxScale = 50.0f;
-        float terrainScale = 30;
-        int terrainSize = 1;
-        float minY = -0.1f;
-        float maxY = 0.1f;
-        int textInc = 40;
-        Terrain terrain = new Terrain(terrainSize, terrainScale, minY, maxY, "/textures/heightmap.png", "/textures/terrain.png", textInc);
-        scene.setGameItems(terrain.getGameItems());
+        Terrain terrain = new Terrain(1, 30, -0.1f, 0.1f, "/textures/heightmap.png", "/textures/terrain.png", 40);
+        scene.setGameElement(terrain.getGameElement());
 
         SkyBox skyBox = new SkyBox("/models/skybox.obj", "/textures/skybox.png");
-        skyBox.setScale(skyBoxScale);
+        skyBox.setScale(50.0f);
         scene.setSkyBox(skyBox);
 
-        SceneLight sceneLight = new SceneLight();
-        scene.setSceneLight(sceneLight);
+        SceneSun sceneSun = new SceneSun();
+        scene.setSceneSun(sceneSun);
 
-        float lightIntensity = 1.0f;
+        sceneSun.setSkyBoxSun(new Vector3f(0.9f, 0.9f, 0.9f));
+
         Vector3f lightPosition = new Vector3f(1, 1, 0);
-        sceneLight.setDirectionalLight(new DirectionalLight(new Vector3f(1, 1, 1), lightPosition, lightIntensity));
+        sceneSun.setDirectSun(new DirectSun(new Vector3f(1, 1, 1), lightPosition, 1.0f));
 
         camera.getPosition().x = 0.0f;
         camera.getPosition().z = 0.0f;
@@ -64,16 +69,16 @@ public class Game implements InterfaceGameLogic {
     }
 
     @Override
-    public void input(Window window, MouseInput mouseInput) {
+    public void input(Window window, Input mouseInput) {
         cameraInc.set(0, 0, 0);
-        if (window.isKeyPressed(GLFW_KEY_W)) {
+        if ((window.isKeyPressed(GLFW_KEY_W)) || (window.isKeyPressed(GLFW_KEY_UP))) {
             cameraInc.z = -1;
-        } else if (window.isKeyPressed(GLFW_KEY_S)) {
+        } else if ( (window.isKeyPressed(GLFW_KEY_S) || (window.isKeyPressed(GLFW_KEY_DOWN)) )) {
             cameraInc.z = 1;
         }
-        if (window.isKeyPressed(GLFW_KEY_A)) {
+        if ((window.isKeyPressed(GLFW_KEY_A)) || (window.isKeyPressed(GLFW_KEY_LEFT))) {
             cameraInc.x = -1;
-        } else if (window.isKeyPressed(GLFW_KEY_D)) {
+        } else if ((window.isKeyPressed(GLFW_KEY_D)) || (window.isKeyPressed(GLFW_KEY_RIGHT))) {
             cameraInc.x = 1;
         }
         if (window.isKeyPressed(GLFW_KEY_Z)) {
@@ -84,35 +89,33 @@ public class Game implements InterfaceGameLogic {
     }
 
     @Override
-    public void update(float interval, MouseInput mouseInput) {         
-        
-        if (mouseInput.isLeftButtonPressed()) {
-            Vector2f rotVec = mouseInput.getDisplVec();
-            camera.moveRotation(rotVec.x * 0.2f, rotVec.y * 0.2f, 0);
+    public void update(float interval, Input input) {
+        if (input.isLeftButtonPressed()) {
+            Vector2f rotationVector = input.getDisplayVector();
+            camera.moveRotation(rotationVector.x * 0.2f, rotationVector.y * 0.2f, 0);
         }
 
         camera.movePosition(cameraInc.x * CAMERA_POS_STEP, cameraInc.y * CAMERA_POS_STEP, cameraInc.z * CAMERA_POS_STEP);
 
-        SceneLight sceneLight = scene.getSceneLight();
-        DirectionalLight directionalLight = sceneLight.getDirectionalLight();
-        lightAngle += 0.8f;
-        if(lightAngle >= 90f){
-            lightAngle = -90f;
+        SceneSun sceneSun = scene.getSceneSun();
+        DirectSun directSun = sceneSun.getDirectSun();
+        lightPosition += 0.5f;
+        if(lightPosition >= 90f){
+        	lightPosition = -90f;
         }
-        directionalLight.setIntensity(0.9f);
-        sceneLight.getSkyBoxLight().set(0.9f, 0.9f, 0.9f);
-
-        double angRad = Math.toRadians(lightAngle);
-        directionalLight.getDirection().x = (float) Math.sin(angRad);
-        directionalLight.getDirection().y = (float) Math.cos(angRad);
-
-        System.out.println("light angle: "+lightAngle+" | angRad: "+angRad);
-        
+        directSun.setIntensity(0.9f);
+        sceneSun.getSkyBoxSun().set(0.9f, 0.9f, 0.9f);
     }
 
     @Override
     public void render(Window window) {
         render.render(window, camera, scene);
+    }
+
+    @Override
+    public void cleanup() {
+        render.cleanup();
+        scene.cleanup();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.lwjglb.engine.graph;
+package com.lwjglb.engine.modifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.joml.Vector3f;
 
 import com.lwjglb.engine.Utils;
 
-public class OBJLoader {
+public class LoaderObject {
 
     public static Mesh loadMesh(String fileName) throws Exception {
         List<String> lines = Utils.readAllLines(fileName);
