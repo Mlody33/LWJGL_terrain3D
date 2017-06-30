@@ -24,8 +24,12 @@ public class SpotSun {
         return singleSun;
     }
 
-    public void setPointLight(SingleSun singleSun) {
+    public void setSingleSun(SingleSun singleSun) {
         this.singleSun = singleSun;
+    }
+    
+    public SingleSun getSingleSun() {
+        return singleSun;
     }
 
     public Vector3f getConeDirection() {

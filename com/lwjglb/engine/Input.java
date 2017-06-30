@@ -42,12 +42,10 @@ public class Input {
     }
 
 	public Vector2f getDisplayVector() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void input(Window window) {
-		// TODO Auto-generated method stub
 		
 	}
 }

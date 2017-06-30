@@ -143,7 +143,7 @@ public class ShaderProgram {
         setUniform(uniformName + ".colour", pointLight.getColor());
         setUniform(uniformName + ".position", pointLight.getPosition());
         setUniform(uniformName + ".intensity", pointLight.getIntensity());
-        PointLight.Attenuation att = pointLight.getAttenuation();
+        SingleSun.Gradient att = pointLight.getGradient();
         setUniform(uniformName + ".att.constant", att.getConstant());
         setUniform(uniformName + ".att.linear", att.getLinear());
         setUniform(uniformName + ".att.exponent", att.getExponent());

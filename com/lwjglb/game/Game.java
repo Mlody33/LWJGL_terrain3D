@@ -33,8 +33,6 @@ public class Game implements GameInterface {
     private float lightPosition;
 	private Render render;
 
-    private static final float CAMERA_POS_STEP = 0.05f;
-
     public Game() {
         render = new Render();
         camera = new Camera();
@@ -95,7 +93,7 @@ public class Game implements GameInterface {
             camera.moveRotation(rotationVector.x * 0.2f, rotationVector.y * 0.2f, 0);
         }
 
-        camera.movePosition(cameraInc.x * CAMERA_POS_STEP, cameraInc.y * CAMERA_POS_STEP, cameraInc.z * CAMERA_POS_STEP);
+        camera.movePosition(cameraInc.x * 0.05f, cameraInc.y * 0.05f, cameraInc.z * 0.05f);
 
         SceneSun sceneSun = scene.getSceneSun();
         DirectSun directSun = sceneSun.getDirectSun();

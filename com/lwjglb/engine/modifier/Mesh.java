@@ -120,7 +120,6 @@ public class Mesh {
         Texture texture = material.getTexture();
         if (texture != null) {
             glActiveTexture(GL_TEXTURE0);
-            // Bind the texture
             glBindTexture(GL_TEXTURE_2D, texture.getId());
         }
 

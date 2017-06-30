@@ -18,7 +18,9 @@ import com.lwjglb.engine.Utils;
 import com.lwjglb.engine.Window;
 import com.lwjglb.engine.element.SkyBox;
 import com.lwjglb.engine.element.TerrainBlock;
+import com.lwjglb.engine.sun.DirectSun;
 import com.lwjglb.engine.sun.SingleSun;
+import com.lwjglb.engine.sun.SpotSun;
 
 
 public class Render {
@@ -150,20 +152,17 @@ public class Render {
             lightPos.x = aux.x;
             lightPos.y = aux.y;
             lightPos.z = aux.z;
-            sceneShaderProgram.setUniform("pointLights", currSingleSun, i);
         }
 
-        // Process Spot Ligths
-        SpotLight[] spotLightList = sceneLight.getSpotSunList();
+        SpotSun[] spotLightList = sceneLight.getSpotSunList();
         numLights = spotLightList != null ? spotLightList.length : 0;
         for (int i = 0; i < numLights; i++) {
-            // Get a copy of the spot light object and transform its position and cone direction to view coordinates
-            SpotLight currSpotLight = new SpotLight(spotLightList[i]);
+        	SpotSun currSpotLight = new SpotSun(spotLightList[i]);
             Vector4f dir = new Vector4f(currSpotLight.getConeDirection(), 0);
             dir.mul(viewMatrix);
             currSpotLight.setConeDirection(new Vector3f(dir.x, dir.y, dir.z));
 
-            Vector3f lightPos = currSpotLight.getPointLight().getPosition();
+            Vector3f lightPos = currSpotLight.getSingleSun().getPosition();
             Vector4f aux = new Vector4f(lightPos, 1);
             aux.mul(viewMatrix);
             lightPos.x = aux.x;
@@ -173,8 +172,7 @@ public class Render {
             sceneShaderProgram.setUniform("spotLights", currSpotLight, i);
         }
 
-        // Get a copy of the directional light object and transform its position to view coordinates
-        DirectionalLight currDirLight = new DirectionalLight(sceneLight.getDirectSun());
+        DirectSun currDirLight = new DirectSun(sceneLight.getDirectSun());
         Vector4f dir = new Vector4f(currDirLight.getDirection(), 0);
         dir.mul(viewMatrix);
         currDirLight.setDirection(new Vector3f(dir.x, dir.y, dir.z));
