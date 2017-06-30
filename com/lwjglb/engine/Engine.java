@@ -1,23 +1,23 @@
 package com.lwjglb.engine;
 
-public class GameEngine implements Runnable {
+public class Engine implements Runnable {
 
     public static final int TARGET_FPS = 75;
     public static final int TARGET_UPS = 30;
     private final Window window;
     private final Thread gameLoopThread;
     private final Timer timer;
-    private final InterfaceGameLogic gameLogic;
-    private final MouseInput mouseInput;
+    private final GameInterface gameLogic;
+    private final Input mouseInput;
 
-    public GameEngine(String windowTitle, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
+    public Engine(String windowTitle, boolean vSync, GameInterface gameLogic) throws Exception {
         this(windowTitle, 0, 0, vSync, gameLogic);
     }
     
-    public GameEngine(String windowTitle, int width, int height, boolean vSync, InterfaceGameLogic gameLogic) throws Exception {
+    public Engine(String windowTitle, int width, int height, boolean vSync, GameInterface gameLogic) throws Exception {
         gameLoopThread = new Thread(this, "GAME_LOOP_THREAD");
         window = new Window(windowTitle, width, height, vSync);
-        mouseInput = new MouseInput();
+        mouseInput = new Input();
         this.gameLogic = gameLogic;
         timer = new Timer();
     }
